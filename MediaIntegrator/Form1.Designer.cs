@@ -78,6 +78,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Bläddra";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -87,6 +88,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Bläddra";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MediaIntegrator
             // 
@@ -102,6 +104,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MediaIntegrator";
             this.Text = "MediaIntegrator";
+            this.Load += new System.EventHandler(this.MediaIntegrator_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
