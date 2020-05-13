@@ -13,7 +13,7 @@ namespace MediaIntegrator
 {
     public partial class MediaIntegrator : Form
     {
-
+        //Skapar ett nytt objekt av filewatch
         FileWatch fwc = new FileWatch();
         public MediaIntegrator()
         {
@@ -25,6 +25,7 @@ namespace MediaIntegrator
             
         }
 
+        //Öppnar en dialog som låter användaren bläddra bland mappar som ska övervakas.
         private void button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fb = new FolderBrowserDialog();
@@ -33,15 +34,15 @@ namespace MediaIntegrator
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fb.SelectedPath))
                 {
-                    string[] files = Directory.GetFiles(fb.SelectedPath);
-                    fwc.fileWatch(fb.SelectedPath);
-                    //fileWatch(fb.SelectedPath);
+                    //Sätter texten till sökvägen
                     textBox1.Text = fb.SelectedPath;
-                    System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
+                    //skickar med sökvägen till filewatch funktionen.
+                    fwc.fileWatch(fb.SelectedPath);
                 }
             }
         }
 
+        //Öppnar en dialog som låter användaren bläddra bland mappar som den ska sparas till.
         private void button2_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fb = new FolderBrowserDialog();
@@ -50,9 +51,10 @@ namespace MediaIntegrator
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fb.SelectedPath))
                 {
-                    string[] files = Directory.GetFiles(fb.SelectedPath);
+                    //Sätter texten till sökvägen
                     textBox2.Text = fb.SelectedPath;
-                    System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
+                    //Skickar med sökvägen till savePath funktionen.
+                    fwc.savePath(fb.SelectedPath);
                 }
             }
         }
